@@ -154,10 +154,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         {/* Designed & Developed by Credit */}
-        <div className="my-6 text-center">
+        <div className="my-6 flex flex-col items-center justify-center text-center">
+          {/* Small Avatar Container */}
+          <div className="relative group mb-3">
+            {/* Glowing ring around the photo */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#F5B83D] to-[#E88918] rounded-full blur-[2px] opacity-70 group-hover:opacity-100 transition duration-300" />
+            
+            {/* Avatar Image */}
+            <img
+              src="\src\assets\images\ubaid img.png"
+              alt="Ubaid Ali - Developer"
+              className="relative w-16 h-16 rounded-full object-cover border-2 border-[#F5B83D] shadow-md transition-transform duration-300 group-hover:scale-105 bg-[#1b0d0c]"
+            />
+          </div>
+
           <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-amber-500/20 bg-amber-950/20 px-4 py-1.5 text-xs text-stone-300 backdrop-blur-sm">
             <span>Designed & Developed by</span>
-            <span className="font-semibold text-amber-300">Ubaid Ali</span>
+            <span className="font-semibold text-amber-300">Ubaid Ali [CSE]</span>
             <span className="text-stone-500">|</span>
             <a 
               href="https://www.instagram.com/ubaid._.ali/" 
@@ -179,6 +192,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               LinkedIn ↗
             </a>
           </div>
+
+          {/* Subtitle / Festival tag */}
+          <p className="text-[11px] text-[#FFF4DC]/50 mt-1.5">
+            ACET Ganesh Festival 2026
+          </p>
         </div>
 
         {/* Bottom copyright & back to top */}

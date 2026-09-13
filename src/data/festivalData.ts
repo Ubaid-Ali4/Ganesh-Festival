@@ -14,6 +14,7 @@ import posterImg from '../assets/images/poster.jpeg';
 import decor1Img from '../assets/images/decor1.jpeg';
 import decor2Img from '../assets/images/decor2.jpeg';
 import decor3Img from '../assets/images/decor3.jpeg';
+import teamImg from '../assets/images/group.jpeg';
 
 export const festivalData: FestivalData & {
   scheduleDuration: string;
@@ -240,7 +241,14 @@ export const festivalData: FestivalData & {
       imageUrl: decor2Img,
       caption: 'Handcrafted installation portraying modern obstacles like phishing, deepfakes, and misinformation to be dispelled by divine wisdom.',
     },
-    
+
+    {
+      id: 'g-5',
+      title: 'With the Principal & Mentors',
+      category: 'Events',
+      imageUrl: teamImg,
+      caption: 'Core student volunteers alongside the Principal and faculty coordinators leading the ACET Ganesh Festival 2026.',
+    },
     
     
   ],
