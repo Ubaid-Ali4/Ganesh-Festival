@@ -2,6 +2,7 @@ import React from 'react';
 import { Sparkles, Share2, Globe, Heart, ArrowUp } from 'lucide-react';
 import { festivalData } from '../data/festivalData';
 import acetLogoImg from '../assets/images/acet_college_logo_1789121643866.jpg';
+import ubaidImg from '../assets/images/ubaid img.png';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -162,7 +163,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             
             {/* Avatar Image */}
             <img
-              src="\src\assets\images\ubaid img.png"
+              src={ubaidImg}
               alt="Ubaid Ali - Developer"
               className="relative w-16 h-16 rounded-full object-cover border-2 border-[#F5B83D] shadow-md transition-transform duration-300 group-hover:scale-105 bg-[#1b0d0c]"
             />
