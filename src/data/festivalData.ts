@@ -219,27 +219,28 @@ export const festivalData: FestivalData & {
     },
     {
       id: 'g-2',
-      title: 'Maha Aarti with Sacred Flames',
+      title: 'Engineering the Reception: Behind the Scenes',
       category: 'Decoration',
       imageUrl: decor3Img,
-      caption: 'Evening Aarti ceremony with golden brass lamps, camphor illumination, and floral showers.',
+      caption: 'Students and organizers putting final touches on the physical installation at the ACET Reception Mandap before the grand Sthapana.',
       featured: true,
     },
     {
       id: 'g-3',
-      title: 'Campus Festival Celebrations',
+      title: 'Balancing Screens & Sustainability',
       category: 'Decoration',
       imageUrl: decor1Img,
-      caption: 'Students, faculty, and campus community celebrating the annual Ganesh Utsav in traditional festive attire.',
+      caption: 'Creative display highlighting digital addiction, screen exhaustion, and e-waste, contrasted with clean technology and mindful living.',
       featured: true,
     },
     {
       id: 'g-4',
-      title: 'Thematic Digital & Environmental Backdrop',
+      title: 'Cyber Threats & Digital Shadows',
       category: 'Decoration',
       imageUrl: decor2Img,
-      caption: 'Intricate design contrasting Cyber Threats and Digital Addiction on one side with Environmental Harmony and Green Tech on the other.',
+      caption: 'Handcrafted installation portraying modern obstacles like phishing, deepfakes, and misinformation to be dispelled by divine wisdom.',
     },
+    
     
     
   ],

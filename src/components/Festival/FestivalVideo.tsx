@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Film, Volume2, VolumeX, Play, Pause } from 'lucide-react';
 
-const YOUTUBE_VIDEO_ID = 'gF2M6vvQnXw';
+const YOUTUBE_VIDEO_ID = 'CP1AclsbZvc';
 
 export const FestivalVideo: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
