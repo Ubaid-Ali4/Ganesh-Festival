@@ -4,8 +4,8 @@ import confetti from 'canvas-confetti';
 import { audioService } from '../../utils/audio';
 
 export const DigitalDiya: React.FC = () => {
-  const BASE_COUNT = 56;
-  const SYNC_API_URL = 'https://api.restful-api.dev/objects/ff808181a067127101a09a7a7dcf08b6';
+  const BASE_COUNT = 125;
+  const FIREBASE_DB_URL = 'https://acet-ganesh-default-rtdb.firebaseio.com/diyaCount.json';
 
   const [diyaCount, setDiyaCount] = useState<number>(() => {
     if (typeof window !== 'undefined') {
@@ -21,14 +21,14 @@ export const DigitalDiya: React.FC = () => {
   const [userOfferingsCount, setUserOfferingsCount] = useState<number>(0);
   const [justLit, setJustLit] = useState<boolean>(false);
 
-  // Helper to fetch latest global count
+  // Helper to fetch latest global count from Firebase Realtime Database
   const fetchGlobalCount = async () => {
     try {
-      const res = await fetch(SYNC_API_URL, { cache: 'no-cache' });
+      const res = await fetch(FIREBASE_DB_URL, { cache: 'no-cache' });
       if (res.ok) {
-        const json = await res.json();
-        const serverCount = json?.data?.count;
-        if (typeof serverCount === 'number' && serverCount >= BASE_COUNT) {
+        const data = await res.json();
+        const serverCount = Number(data);
+        if (!isNaN(serverCount) && serverCount >= BASE_COUNT) {
           setDiyaCount((prev) => Math.max(prev, serverCount));
           if (typeof window !== 'undefined') {
             localStorage.setItem('ganpati_diya_count_v2', String(Math.max(serverCount, diyaCount)));
@@ -54,11 +54,11 @@ export const DigitalDiya: React.FC = () => {
       }
     }
 
-    // 2. Fetch live global shared count on mount
+    // 2. Fetch live global shared count on mount from Firebase
     fetchGlobalCount();
 
-    // 3. Periodic background sync every 12 seconds so all users see updates live
-    const interval = setInterval(fetchGlobalCount, 12000);
+    // 3. Periodic background sync every 10 seconds so all users see updates live
+    const interval = setInterval(fetchGlobalCount, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -79,12 +79,12 @@ export const DigitalDiya: React.FC = () => {
       localStorage.setItem('ganpati_user_offerings_count', String(newOfferings));
     }
 
-    // Background Global Sync across all devices
+    // Background Global Sync via Firebase Realtime Database
     try {
-      await fetch(SYNC_API_URL, {
-        method: 'PATCH',
+      await fetch(FIREBASE_DB_URL, {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data: { count: newCount } }),
+        body: JSON.stringify(newCount),
       });
     } catch {
       // Offline fallback
